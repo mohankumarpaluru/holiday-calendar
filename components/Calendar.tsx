@@ -21,6 +21,8 @@ const Calendar = () => {
     const cities = useMemo(() => Object.keys(holidayData), [])
 
     const {setTheme, theme} = useTheme()
+    const currentDate = new Date()
+    const currentMonth = currentDate.toLocaleString('default', { month: 'long' })
 
     const getHolidayColor = (date: Date) => {
         const dayOfWeek = date.getDay()
@@ -116,11 +118,16 @@ const Calendar = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {months.map((month) => (
-                            <Month key={month.name} month={month} holidays={holidays}/>
-                        ))}
-                    </div>
-                </>
+            {months.map((month) => (
+              <Month
+                key={month.name}
+                month={month}
+                holidays={holidays}
+                isCurrentMonth={month.name === currentMonth}
+              />
+            ))}
+          </div>
+        </>
             ) : (
                 <Card>
                     <CardHeader>
