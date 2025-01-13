@@ -1,5 +1,7 @@
 import Day from './Day'
 import ShineBorder from "@/components/ui/shine-border"
+import { useTheme } from "next-themes";
+
 
 const Month = ({ month, holidays, isCurrentMonth }: { month: any, holidays: any[], isCurrentMonth: boolean }) => {
     const content = (
@@ -21,6 +23,7 @@ const Month = ({ month, holidays, isCurrentMonth }: { month: any, holidays: any[
             </div>
         </>
     )
+    const theme = useTheme();
     return isCurrentMonth ? (
         <ShineBorder
           className="backdrop-blur-sm text-card-foreground rounded-lg shadow-md"
@@ -28,8 +31,9 @@ const Month = ({ month, holidays, isCurrentMonth }: { month: any, holidays: any[
         >
           {content}
         </ShineBorder>
-      ) : <div className="backdrop-blur-sm text-card-foreground rounded-lg shadow-md p-4">
-      {content} </div>
+      ) : <ShineBorder className="backdrop-blur-sm text-card-foreground rounded-lg shadow-md p-4"
+      color={theme.theme === "dark" ? ["#010816", "#010816", "#010816"]: ["#ffffff", "#ffffff", "#ffffff"]}>
+      {content} </ShineBorder>
 }
 
 export default Month

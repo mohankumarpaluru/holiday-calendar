@@ -11,6 +11,7 @@ import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue,} from "@/
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow,} from "@/components/ui/table"
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
 import {holidayData} from '../lib/holidayData'
+import { TextAnimate } from "@/components/ui/text-animate";
 
 type City = keyof typeof holidayData;
 
@@ -43,7 +44,8 @@ const Calendar = () => {
     return (
         <div className="container mx-auto p-4">
             <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
-                <h1 className="text-3xl font-bold mb-4 sm:mb-0">ACN 2025 Holiday Calendar</h1>
+
+                <h1 className="text-3xl font-bold mb-4 sm:mb-0"><TextAnimate animation="slideLeft" by="character" startOnView={false} >ACN 2025 Holiday Calendar</TextAnimate></h1>
                 <div className="flex items-center space-x-4">
                     <Select onValueChange={setSelectedCity} defaultValue={selectedCity}>
                         <SelectTrigger className="w-[180px]">
@@ -117,7 +119,7 @@ const Calendar = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
             {months.map((month) => (
               <Month
                 key={month.name}
