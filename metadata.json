@@ -1,0 +1,29 @@
+{
+  "title": "Holiday Calendar 2026",
+  "description": "A multi-organization, multi-city holiday calendar viewer. Browse holidays in calendar or list view with support for general and optional holidays. Features dark/light themes and smooth animations.",
+  "version": "0.0.0",
+  "author": "Mohan Kumar Paluru",
+  "repository": "https://github.com/mohankumarpaluru/holiday-calendar",
+  "branch": "2026",
+  "url": "https://mohan.is-a.dev/holiday-calendar/",
+  "keywords": ["holidays", "calendar", "2026", "schedule", "organization"],
+  "technologies": [
+    "React 19",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "Framer Motion",
+    "date-fns"
+  ],
+  "features": [
+    "Multi-organization support",
+    "Multi-city holiday schedules",
+    "Calendar and list view modes",
+    "Dark/light theme toggle",
+    "Filter optional holidays",
+    "Persistent user preferences",
+    "Responsive design",
+    "Smooth animations"
+  ],
+  "requestFramePermissions": []
+}

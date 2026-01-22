@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/M-Logo.ico" />
+
+    <!-- SEO & OG Meta Tags -->
+    <title>Holiday Calendar 2026 | Multi-City Holiday Schedules</title>
+    <meta name="description" content="A multi-organization, multi-city holiday calendar viewer. Browse holidays in calendar or list view with support for general and optional holidays. Features dark/light themes." />
+    <meta name="keywords" content="holidays, calendar, 2026, schedule, organization" />
+    <meta name="author" content="Mohan Kumar Paluru" />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Holiday Calendar 2026" />
+    <meta property="og:description" content="Browse holidays for multiple organizations and cities. View in calendar or list format with filtering options." />
+    <meta property="og:url" content="https://mohan.is-a.dev/holiday-calendar/" />
+    <meta property="og:site_name" content="Holiday Calendar 2026" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Holiday Calendar 2026" />
+    <meta name="twitter:description" content="Browse holidays for multiple organizations and cities with dark/light theme support." />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              background: "var(--background)",
+              foreground: "var(--foreground)",
+            },
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --font-sans: "Geist", "Inter", system-ui, -apple-system, sans-serif;
+        --font-mono: "Geist Mono", "Roboto Mono", monospace;
+
+        /* Locked Color Palette */
+        --bg-dark: #071225;
+
+        --card-bg-light: #FFFFFF;
+        --card-bg-dark: rgba(255,255,255,0.03);
+
+        --text-dark: #0f1724;
+
+        /* Navbar Backgrounds */
+        --navbar-bg-light: rgba(255,255,255,0.92);
+        --navbar-bg-dark: rgba(10,16,28,0.86);
+
+        /* Shine Border Colors (Light Mode) */
+        --shine-c1: rgba(156,64,255,0.65);
+        --shine-c2: rgba(64,179,255,0.65);
+        --shine-c3: rgba(255,190,123,0.55);
+
+        /* Border Beam Colors */
+        --beam-from: rgba(156,64,255,0.12);
+        --beam-to: rgba(64,179,255,0.10);
+      }
+
+      .dark {
+        /* Shine Border Colors (Dark Mode) */
+        --shine-c1: rgba(156,64,255,0.9);
+        --shine-c2: rgba(64,179,255,0.85);
+        --shine-c3: rgba(160,124,254,0.8);
+      }
+
+      /* Animation Definitions */
+      @keyframes shine {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      @keyframes border-beam {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
+
+      /* Shine Border - Robust Implementation */
+      .shine-border {
+        position: relative;
+        display: inline-block;
+        --border-radius: 12px;
+        --border-width: 1.2px;
+        --duration: 14s;
+      }
+
+      .shine-border .shine-layer {
+        position: absolute;
+        inset: 0;
+        z-index: 20; /* Sit ABOVE content to ensure visibility */
+        border-radius: var(--border-radius);
+        pointer-events: none;
+
+        /* Gradient uses CSS vars that switch based on theme */
+        background-image: linear-gradient(90deg, var(--shine-c1), var(--shine-c2), var(--shine-c3), var(--shine-c1));
+        background-size: 300% 100%;
+        animation: shine var(--duration) linear infinite;
+
+        /* Mask to create border stroke */
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+
+        padding: var(--border-width);
+        box-sizing: border-box;
+      }
+
+      /* BorderBeam - Ambient Background Separator */
+      .border-beam {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        background-image: linear-gradient(90deg, var(--beam-from), var(--beam-to), var(--beam-from));
+        background-size: 200% 100%;
+        animation: border-beam 18s linear infinite;
+        opacity: 0.28;
+        z-index: 0; /* Behind content */
+      }
+
+      /* Layout Helpers */
+      .card-content {
+        position: relative;
+        z-index: 10;
+        background: var(--card-bg-light);
+      }
+      .dark .card-content {
+        background: var(--card-bg-dark);
+      }
+
+      /* Base Styles */
+      body {
+        font-family: var(--font-sans);
+        background-color: #f9fafb;
+        color: var(--text-dark);
+        transition: background-color 0.3s ease, color 0.3s ease;
+        overflow-x: hidden;
+      }
+
+      .dark body {
+        background-color: var(--bg-dark);
+        color: #e6eef8;
+      }
+
+      .font-mono {
+        font-family: var(--font-mono);
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.5); border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(156, 163, 175, 0.8); }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "date-fns": "https://esm.sh/date-fns@^4.1.0",
+    "clsx": "https://esm.sh/clsx@^2.1.0",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^2.2.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="min-h-screen">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
